@@ -1,0 +1,5 @@
+{
+  "production": false,
+  "baseUrl": "http://localhost:4200",
+  "headerRemote": "http://localhost:4201/remoteEntry.js"
+}

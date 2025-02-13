@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "shell": {
+      "projectType": "application",
+      "root": "shell",
+      "sourceRoot": "shell/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/shell",
+            "index": "shell/src/index.html",
+            "main": "shell/src/main.ts",
+            "polyfills": "shell/src/polyfills.ts",
+            "tsConfig": "shell/tsconfig.app.json",
+            "assets": [
+              "shell/src/favicon.ico",
+              "shell/src/assets"
+            ],
+            "styles": [
+              "shell/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "shell/src/environments/environment.ts",
+                  "with": "shell/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2kb",
+                  "maximumError": "5kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "shell:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "shell:build:production"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "shell/src/test.ts",
+            "polyfills": "shell/src/polyfills.ts",
+            "tsConfig": "shell/tsconfig.spec.json",
+            "karmaConfig": "shell/karma.conf.js",
+            "assets": [
+              "shell/src/favicon.ico",
+              "shell/src/assets"
+            ],
+            "styles": [
+              "shell/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "shell/tsconfig.app.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "shell"
+}
